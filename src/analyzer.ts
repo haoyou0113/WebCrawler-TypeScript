@@ -14,6 +14,14 @@ interface Content {
     [propName: number]: Format[]
 }
 export default class Analyizer implements AnalyzerType {
+    private static instance: Analyizer
+
+    static getInstance() {
+        if (!Analyizer.instance) {
+            Analyizer.instance = new Analyizer()
+        }
+        return Analyizer.instance
+    }
     private getInfo(html: string) {
         const $ = cheerio.load(html)
         const courseItems = $('.course-item');
@@ -33,7 +41,7 @@ export default class Analyizer implements AnalyzerType {
 
     }
 
-    generateJsonContent(courseInfo: Result, filePath: string) {
+    private generateJsonContent(courseInfo: Result, filePath: string) {
 
         let fileContent: Content = {}
         if (fs.existsSync(filePath)) {
@@ -51,6 +59,9 @@ export default class Analyizer implements AnalyzerType {
         const fileContent = this.generateJsonContent(courseResult, filePath)
 
         return JSON.stringify(fileContent)
+
+    }
+    private constructor() {
 
     }
 }

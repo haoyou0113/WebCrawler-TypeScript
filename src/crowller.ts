@@ -12,14 +12,14 @@ class Crawler {
 
     private filePath = path.resolve(__dirname, '../data/result.json')
 
-    async getRawHtml() {
+    private async getRawHtml() {
         const result = await superagent.get(this.url)
         return result.text
     }
     writeFile(content: string) {
         fs.writeFileSync(this.filePath, content)
     }
-    async initSpiderProcess() {
+    private async initSpiderProcess() {
         const html = await this.getRawHtml();
         const fileContent = this.analyzer.analyze(html, this.filePath);
         this.writeFile(fileContent);
@@ -32,5 +32,6 @@ class Crawler {
 }
 const secret = 'x3b174jsx'
 const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}` // set
-const analyzer = new DiyAnalyzer()
+const analyzer = Analyzer.getInstance()
 const crawler = new Crawler(url, analyzer)
+console.log(12312333)

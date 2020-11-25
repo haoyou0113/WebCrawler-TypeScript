@@ -83,6 +83,7 @@ var Crawler = /** @class */ (function () {
     };
     return Crawler;
 }());
+exports.default = Crawler;
 var secret = 'x3b174jsx';
 var url = "http://www.dell-lee.com/typescript/demo.html?secret=" + secret; // set
 var analyzer = analyzer_1.default.getInstance();

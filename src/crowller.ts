@@ -30,6 +30,8 @@ class Crawler {
     }
 
 }
+
+export default Crawler
 const secret = 'x3b174jsx'
 const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}` // set
 const analyzer = Analyzer.getInstance()

@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = require("./utils/util");
+var util_1 = require("../utils/util");
 var express_1 = require("express");
-var crowller_1 = __importDefault(require("./utils/crowller"));
-var analyzer_1 = __importDefault(require("./utils/analyzer"));
+var crowller_1 = __importDefault(require("../utils/crowller"));
+var analyzer_1 = __importDefault(require("../utils/analyzer"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var checkLogin = function (req, res, next) {
@@ -15,7 +15,7 @@ var checkLogin = function (req, res, next) {
         next();
     }
     else {
-        res.json(util_1.getResponseData(null, "Please Login"));
+        res.json(util_1.getResponseData(null, "Please Login123"));
     }
 };
 var router = express_1.Router();

@@ -26,34 +26,7 @@ interface BodyRequest extends Request {
 const router = Router()
 
 
-router.get('/', (req: Request, res: Response) => {
-    const isLogin = req.session ? req.session.login : false
-    if (isLogin) {
-        res.send(`
-        <html>
-        <body>
-        <a href='/getData'>Get </a>
-        <br/>
-        <a href='/showData'>Show </a>
-        <br/>
-        <a href='/logout'>Log out </a>
-        </body >
-        </html>
-        `)
-    } else {
-        res.send(`
-        <html>
-        <body>
-        <form method ='post' action = "/login" >
-        <input type = "password" name="password" />
-        <button>Login </button>
-        </form>
-        </body >
-        </html>
-        `)
-    }
-
-})
+router.get('/', () => { })
 router.post('/login', (req: BodyRequest, res: Response) => {
     const { password } = req.body;
     const isLogin = req.session ? req.session.login : false

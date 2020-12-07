@@ -20,12 +20,18 @@ export class LoginController {
         return !!(req.session ? req.session.login : false)
 
     }
-    @post('/login')
+
+    @get('/api/isLogin')
+    isLogin(req: BodyRequest, res: Response): void {
+        const isLogin = LoginController.isLogin(req);
+        res.json(getResponseData(isLogin))
+    }
+    @post('/api/login')
     login(req: BodyRequest, res: Response): void {
         const { password } = req.body;
         const isLogin = LoginController.isLogin(req)
         if (isLogin) {
-            res.json(getResponseData(false, 'already login'))
+            res.json(getResponseData(true))
 
         } else {
             if (password === '123' && req.session) {
@@ -39,7 +45,7 @@ export class LoginController {
             }
         }
     }
-    @get('/logout')
+    @get('/api/logout')
     logout(req: BodyRequest, res: Response): void {
         if (req.session) {
             req.session.login = false
@@ -57,7 +63,7 @@ export class LoginController {
         <br/>
         <a href='/showData'>Show </a>
         <br/>
-        <a href='/logout'>Log out </a>
+        <a href='/api/logout'>Log out </a>
         </body >
         </html>
         `)

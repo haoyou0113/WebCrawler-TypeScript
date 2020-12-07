@@ -47,7 +47,7 @@ var Crawler = /** @class */ (function () {
     function Crawler(url, analyzer) {
         this.url = url;
         this.analyzer = analyzer;
-        this.filePath = path_1.default.resolve(__dirname, '../data/result.json');
+        this.filePath = path_1.default.resolve(__dirname, '../../data/result.json');
         this.initSpiderProcess();
     }
     Crawler.prototype.getRawHtml = function () {

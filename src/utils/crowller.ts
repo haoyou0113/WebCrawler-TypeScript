@@ -10,7 +10,7 @@ export interface AnalyzerType {
 
 class Crawler {
 
-    private filePath = path.resolve(__dirname, '../data/result.json')
+    private filePath = path.resolve(__dirname, '../../data/result.json')
 
     private async getRawHtml() {
         const result = await superagent.get(this.url)

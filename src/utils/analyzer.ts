@@ -48,7 +48,7 @@ export default class Analyizer implements AnalyzerType {
             fileContent = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
         }
         fileContent[courseInfo.time] = courseInfo.data;
-        console.log(fileContent)
+        // console.log(fileContent)
         return fileContent
 
     }

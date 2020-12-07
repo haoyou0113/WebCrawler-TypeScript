@@ -2,7 +2,8 @@ import express, { NextFunction, Request, Response } from 'express'
 import cookieSession from 'cookie-session'
 import bodyParser from 'body-parser'
 import './controller/loginController'
-import { router } from './controller/decorator'
+import './controller/CrawlerController'
+import router from './router'
 const app = express()
 
 
@@ -12,10 +13,7 @@ app.use(cookieSession({
     keys: ['leon'],
     maxAge: 24 * 60 * 60 * 1000
 }))
-// app.use((req: Request, res: Response, next: NextFunction) => {
-//     req.teacherName = 'Leon'
-//     next()
-// })
+
 app.use(router)
 
 app.listen(7001, () => {

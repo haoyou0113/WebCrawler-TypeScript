@@ -37,7 +37,7 @@ var Analyizer = /** @class */ (function () {
             fileContent = JSON.parse(fs_1.default.readFileSync(filePath, 'utf-8'));
         }
         fileContent[courseInfo.time] = courseInfo.data;
-        console.log(fileContent);
+        // console.log(fileContent)
         return fileContent;
     };
     Analyizer.prototype.analyze = function (html, filePath) {
